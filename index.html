@@ -53,10 +53,53 @@
 						<div class="container">
 
 							<header>
-								<h1>
-											Motion G-life 行動APP
-								
-								</h1>
+								<h7 class="ml1">
+    								<span class="letters">Motion G-life 行動APP</span>
+								</h7>			
+								<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	
+								<style>
+										.ml1 {
+ 										 font-weight: 900;
+ 										 font-size: 3.5em;
+										}
+
+										.ml1 .letter {
+										  display: inline-block;
+										  line-height: 1em;
+										}
+
+								</style>
+								<script>
+										var textWrapper = document.querySelector('.ml1 .letters');
+										textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+										anime.timeline({loop: true})
+										  .add({
+											targets: '.ml1 .letter',
+											scale: [0.3,1],
+											opacity: [0,1],
+											translateZ: 0,
+											easing: "easeOutExpo",
+											duration: 600,
+											delay: (el, i) => 70 * (i+1)
+										  }).add({
+											targets: '.ml1 .line',
+											scaleX: [0,1],
+											opacity: [0.5,1],
+											easing: "easeOutExpo",
+											duration: 700,
+											offset: '-=875',
+											delay: (el, i, l) => 80 * (l - i)
+										  }).add({
+											targets: '.ml1',
+											opacity: 0,
+											duration: 1000,
+											easing: "easeOutExpo",
+											delay: 1000
+										  });
+									</script>
+							
 								<p>購物、社交、旅遊、行動支付、電子商務<br/>
 							虛實整合再進化的健康科技產品<br/>
 								Motion G-Life行動應用程式。</p>
