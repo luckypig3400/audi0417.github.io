@@ -5,9 +5,12 @@
 		<title>我的部落格</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/css外觀設定.css" />
 	</head>
 	<body class="web">
+	
 		<!-- Header -->
 			<div id="header">
  
@@ -17,7 +20,44 @@
 						<div id="logo">
 							<span class="self-image"><img src="images/AS0005079_11-拷貝.gif"  width="75%" alt="" /></span>
 							<h1 id="title">陳楷融</h1>
-							<p>The rest of my life is all yours</p>
+							<p class="ml14">
+								<span class="text-wrapper">
+    							<span class="letters">The rest of my life is all yours</span>
+									<span class="line"></span>
+							    </span>
+								</p>
+				  
+
+									<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+							<script>
+										var textWrapper = document.querySelector('.ml14 .letters');
+										textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+										anime.timeline({loop: true})
+										  .add({
+											targets: '.ml14 .line',
+											scaleX: [0,1],
+											opacity: [0.5,1],
+											easing: "easeInOutExpo",
+											duration: 900
+										  }).add({
+											targets: '.ml14 .letter',
+											opacity: [0,1],
+											translateX: [40,0],
+											translateZ: 0,
+											scaleX: [0.3, 1],
+											easing: "easeOutExpo",
+											duration: 800,
+											offset: '-=600',
+											delay: (el, i) => 150 + 25 * i
+										  }).add({
+											targets: '.ml14',
+											opacity: 0,
+											duration: 1000,
+											easing: "easeOutExpo",
+											delay: 1000
+										  });
+																		</script>
 						</div>
 					<!-- 左側導覽列-->
 				<nav id="nav">
@@ -64,29 +104,29 @@
 										textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 										anime.timeline({loop: true})
-										  .add({
-											targets: '.ml1 .letter',
-											scale: [0.3,1],
-											opacity: [0,1],
-											translateZ: 0,
-											easing: "easeOutExpo",
-											duration: 600,
-											delay: (el, i) => 70 * (i+1)
-										  }).add({
-											targets: '.ml1 .line',
-											scaleX: [0,1],
-											opacity: [0.5,1],
-											easing: "easeOutExpo",
-											duration: 700,
-											offset: '-=875',
-											delay: (el, i, l) => 80 * (l - i)
-										  }).add({
-											targets: '.ml1',
-											opacity: 0,
-											duration: 1000,
-											easing: "easeOutExpo",
-											delay: 1000
-										  });
+												.add({
+												targets: '.ml1 .letter',
+												scale: [0.3,1],
+												opacity: [0,1],
+												translateZ: 0,
+												easing: "easeOutExpo",
+												duration: 600,
+												delay: (el, i) => 70 * (i+1)
+											  }).add({
+												targets: '.ml1 .line',
+												scaleX: [0,1],
+												opacity: [0.5,1],
+												easing: "easeOutExpo",
+												duration: 700,
+												offset: '-=875',
+												delay: (el, i, l) => 80 * (l - i)
+											  }).add({
+												targets: '.ml1',
+												opacity: 0,
+												duration: 1000,
+												easing: "easeOutExpo",
+												delay: 1000
+											  });
 									</script>
 							
 								<p> 購物、社交、旅遊、行動支付、電子商務<br/>
@@ -180,6 +220,7 @@
 									</div>
 									<div class="col-12">
 										<input type="submit" value="送出" />
+										
 									</div>
 								</div>
 							</form>
@@ -188,7 +229,6 @@
 					</section>
 
 			</div>
-
 		<!-- Footer -->
 			<div id="footer">
 
@@ -196,6 +236,11 @@
 					<ul class="copyright">
 						<li>&copy; 霹靂卡津津拉拉萌萌莉娜融融得斯</li>
 					</ul>
+					<marquee onmouseover="stop()" onmouseout="start()" width="500" scrolldelay="100">
+						曾幻想我的Be&nbsp;&nbsp;Going&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能夠是你的Yes&nbsp;&nbsp;I&nbsp;&nbsp;Do
+					</marquee>
+
+
 
 			</div>
 		
